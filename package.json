@@ -26,6 +26,7 @@
     "eslint-plugin-react-hooks": "^2.1.2"
   },
   "devDependencies": {
+    "@scm-manager/prettier-config": "2.9.1",
     "jest": "^26.0.1"
   },
   "publishConfig": {

@@ -26,19 +26,19 @@ const rules = {
   "prettier/prettier": "warn",
   semi: ["error", "always"],
   quotes: ["error", "double", "avoid-escape"],
-  "no-var": "error"
+  "no-var": "error",
 };
 
 const nodeConfiguration = {
   extends: ["airbnb-base", "plugin:prettier/recommended"],
   rules: {
     "no-console": "off",
-    ...rules
-  }
+    ...rules,
+  },
 };
 
 const restrictImportConfig = {
-  patterns: ["@scm-manager/*/*"]
+  patterns: ["@scm-manager/*/*"],
 };
 
 const typescriptConfiguration = {
@@ -50,8 +50,8 @@ const typescriptConfiguration = {
     "no-console": "error",
     "jsx-a11y/href-no-hash": "off",
     "no-restricted-imports": ["error", restrictImportConfig],
-    ...rules
-  }
+    ...rules,
+  },
 };
 
 module.exports = {
@@ -61,34 +61,34 @@ module.exports = {
       env: {
         node: true,
         jest: true,
-        browser: false
+        browser: false,
       },
-      ...nodeConfiguration
+      ...nodeConfiguration,
     },
     {
       files: ["*.js"],
       env: {
         node: true,
-        browser: false
+        browser: false,
       },
-      ...nodeConfiguration
+      ...nodeConfiguration,
     },
     {
       files: ["*.test.ts", "*.test.tsx"],
       env: {
         node: true,
         jest: true,
-        browser: false
+        browser: false,
       },
-      ...typescriptConfiguration
+      ...typescriptConfiguration,
     },
     {
       files: ["*.ts", "*.tsx"],
       env: {
         node: false,
-        browser: true
+        browser: true,
       },
-      ...typescriptConfiguration
-    }
-  ]
+      ...typescriptConfiguration,
+    },
+  ],
 };
