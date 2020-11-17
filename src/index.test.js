@@ -24,8 +24,11 @@
 
 const { ESLint } = require("eslint");
 const path = require("path");
+const config = require("./index")
 
-const eslint = new ESLint();
+const eslint = new ESLint({
+  baseConfig: config
+});
 const resource = path.join(__dirname, "__resources__");
 
 const lint = async file => {
