@@ -90,5 +90,23 @@ module.exports = {
       },
       ...typescriptConfiguration,
     },
+    {
+      files: ["**/cypress/**/*.js"],
+      env: {
+        node: true,
+        browser: false
+      },
+      "globals": {
+        "Given": "readonly",
+        "When": "readonly",
+        "Then": "readonly",
+        "Before": "readonly",
+        "After": "readonly",
+        "And": "readonly",
+        "But": "readonly",
+        "defineStep": "readonly"
+      },
+      ...nodeConfiguration
+    },
   ],
 };
