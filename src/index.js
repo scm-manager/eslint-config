@@ -49,6 +49,19 @@ const typescriptConfiguration = {
     "@typescript-eslint/ban-ts-ignore": "warn",
     "no-console": "error",
     "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/alt-text": [ 2, {
+      "elements": [ "img", "area", "input[type=\"image\"]" ]
+    }],
+    "jsx-a11y/aria-role": [ 2, {
+      "ignoreNonDOM": true
+    }],
+    "jsx-a11y/aria-unsupported-elements": 2,
+    "jsx-a11y/html-has-lang": 2,
+    "jsx-a11y/autocomplete-valid": 2,
+    "jsx-a11y/heading-has-content": 2,
+    "jsx-a11y/img-redundant-alt": [ 2, {
+      "words": [ "image", "photo", "picture" ],
+    }],
     "no-restricted-imports": ["error", restrictImportConfig],
     ...rules,
   },

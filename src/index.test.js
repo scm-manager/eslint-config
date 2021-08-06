@@ -24,7 +24,7 @@
 
 const { ESLint } = require("eslint");
 const path = require("path");
-const config = require("./index")
+const config = require("./index");
 
 const eslint = new ESLint({
   baseConfig: config
@@ -77,6 +77,54 @@ describe("lint @scm-manager imports", () => {
   it("should return no error for package imports", async () => {
     const { errors, warnings } = await lint("AllowRootImport.tsx");
     expect(errors).toEqual([]);
+    expect(warnings).toEqual([]);
+  });
+
+  it("should return errors for image without alt", async () => {
+    const { errors, warnings } = await lint("WithoutAlt.tsx");
+    expect(errors).toEqual(["jsx-a11y/alt-text"]);
+    expect(warnings).toEqual([]);
+  });
+
+  it("should return errors for invalid image alt", async () => {
+    const { errors, warnings } = await lint("WrongImageAlt.tsx");
+    expect(errors).toEqual(["jsx-a11y/img-redundant-alt"]);
+    expect(warnings).toEqual([]);
+  });
+
+  it("should return no errors for elements with alt", async () => {
+    const { errors, warnings } = await lint("WithAlt.tsx");
+    expect(errors).toEqual([]);
+    expect(warnings).toEqual([]);
+  });
+
+  it("should return errors for header without content", async () => {
+    const { errors, warnings } = await lint("HeaderWithoutContent.tsx");
+    expect(errors).toEqual(["jsx-a11y/heading-has-content"]);
+    expect(warnings).toEqual([]);
+  });
+
+  it("should return errors for wrong autocomplete", async () => {
+    const { errors, warnings } = await lint("AutoComplete.tsx");
+    expect(errors).toEqual(["jsx-a11y/autocomplete-valid"]);
+    expect(warnings).toEqual([]);
+  });
+
+  it("should return errors for html without lang", async () => {
+    const { errors, warnings } = await lint("HtmlWithoutLang.tsx");
+    expect(errors).toEqual(["jsx-a11y/html-has-lang"]);
+    expect(warnings).toEqual([]);
+  });
+
+  it("should return errors for invalid aria role", async () => {
+    const { errors, warnings } = await lint("InvalidAriaRole.tsx");
+    expect(errors).toEqual(["jsx-a11y/aria-role"]);
+    expect(warnings).toEqual([]);
+  });
+
+  it("should return errors for empty aria role", async () => {
+    const { errors, warnings } = await lint("EmptyAriaRole.tsx");
+    expect(errors).toEqual(["jsx-a11y/aria-role"]);
     expect(warnings).toEqual([]);
   });
 });
