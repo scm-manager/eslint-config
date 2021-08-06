@@ -68,12 +68,10 @@ pipeline {
       }
       steps {
         // merge main in to develop
-        sh 'git checkout develop'
-        sh 'git merge main'
+        sh 'git checkout main'
 
         // push changes back to remote repository
         authGit 'cesmarvin-github', 'push origin main --tags'
-        authGit 'cesmarvin-github', 'push origin develop --tags'
         authGit 'cesmarvin-github', "push origin :${env.BRANCH_NAME}"
       }
     }
