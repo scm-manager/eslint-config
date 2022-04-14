@@ -46,7 +46,7 @@ const typescriptConfiguration = {
   extends: ["react-app", "plugin:@typescript-eslint/recommended"],
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/ban-ts-ignore": "warn",
+    "@typescript-eslint/ban-ts-comment": "warn",
     "no-console": "error",
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/alt-text": [ 2, {
