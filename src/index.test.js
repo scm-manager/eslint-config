@@ -128,3 +128,25 @@ describe("lint @scm-manager imports", () => {
     expect(warnings).toEqual([]);
   });
 });
+
+describe("lint react hooks", () => {
+  it("should return error for exhaustive deps", async () => {
+    const { errors, warnings } = await lint("ExhaustiveDeps.tsx");
+    expect(errors).toEqual(["react-hooks/exhaustive-deps"]);
+    expect(warnings).toEqual([]);
+  });
+});
+
+describe("lint typescript comments", () => {
+  it("should return warning if comment is missing on ts-ignore", async () => {
+    const { errors, warnings } = await lint("TsIgnoreWithoutComment.ts");
+    expect(errors).toEqual([]);
+    expect(warnings).toEqual(["@typescript-eslint/ban-ts-comment"]);
+  });
+
+  it("should return nothing if ts-ignore has a comment", async () => {
+    const { errors, warnings } = await lint("TsIgnoreWithComment.ts");
+    expect(errors).toEqual([]);
+    expect(warnings).toEqual([]);
+  });
+});

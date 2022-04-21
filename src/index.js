@@ -46,7 +46,6 @@ const typescriptConfiguration = {
   extends: ["react-app", "plugin:@typescript-eslint/recommended"],
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/ban-ts-comment": "warn",
     "no-console": "error",
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/alt-text": [ 2, {
@@ -63,6 +62,10 @@ const typescriptConfiguration = {
       "words": [ "image", "photo", "picture" ],
     }],
     "no-restricted-imports": ["error", restrictImportConfig],
+    "react-hooks/exhaustive-deps": 2,
+    "@typescript-eslint/ban-ts-comment": ["warn", {
+      "ts-ignore": "allow-with-description",
+    }],
     ...rules,
   },
 };
