@@ -150,17 +150,3 @@ describe("lint typescript comments", () => {
     expect(warnings).toEqual([]);
   });
 });
-
-describe("lint tailwind classes", () => {
-  it("should return error if conflicting tailwind classes are used", async () => {
-    const { errors, warnings } = await lint("ConflictingTailwindClasses.tsx");
-    expect(errors).toEqual(["tailwindcss/no-contradicting-classname"]);
-    expect(warnings).toEqual([]);
-  });
-
-  it("should return warning for incorrect class name order when using the classNames library", async () => {
-    const { errors, warnings } = await lint("TailwindClassesWithClassNames.tsx");
-    expect(errors).toEqual([]);
-    expect(warnings).toEqual(["tailwindcss/classnames-order"]);
-  });
-});

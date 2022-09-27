@@ -43,12 +43,7 @@ const restrictImportConfig = {
 
 const typescriptConfiguration = {
   parser: "@typescript-eslint/parser",
-  extends: ["react-app", "plugin:@typescript-eslint/recommended", "plugin:tailwindcss/recommended"],
-  settings: {
-    tailwindcss: {
-      callees: ["classnames", "classNames"]
-    },
-  },
+  extends: ["react-app", "plugin:@typescript-eslint/recommended"],
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
     "no-console": "error",
