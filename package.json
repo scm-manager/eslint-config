@@ -4,7 +4,7 @@
   "description": "ESLint configuration for scm-manager and its plugins",
   "main": "src/index.js",
   "author": "SCM-Team <scm-team@cloudogu.com>",
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "private": false,
   "scripts": {
     "test": "jest",
