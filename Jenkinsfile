@@ -75,8 +75,23 @@ pipeline {
         authGit 'SCM-Manager', "push origin :${env.BRANCH_NAME}"
       }
     }
+      stage('Update GitHub') {
+      when {
+        branch pattern: 'release/*', comparator: 'GLOB'
+	expression { return isBuildSuccess() }
+      }
+      steps {
+        sh 'git checkout main'
+        
+        // push changes to GitHub
+        authGit 'cesmarvin', "push -f https://github.com/scm-manager/babel-preset main --tags"
+      }
+    }
   }
+}
 
+boolean isBuildSuccess() {
+  return currentBuild.result == null || currentBuild.result == 'SUCCESS'
 }
 
 String getReleaseVersion() {
