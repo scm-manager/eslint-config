@@ -7,7 +7,7 @@
   @scm-manager/eslint-config
 </h1>
 
-[ESLint](https://eslint.org/) base configuration for all SCM-Manager related projects.
+This is the [ESLint](https://eslint.org/) base configuration for all SCM-Manager related projects.
 
 ## Installation
 
