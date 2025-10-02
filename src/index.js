@@ -35,7 +35,14 @@ const restrictImportConfig = {
 
 const typescriptConfiguration = {
   parser: "@typescript-eslint/parser",
-  extends: ["react-app", "plugin:@typescript-eslint/recommended"],
+  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'prettier'],
+  extends: [
+    'eslint:recommended', 
+    'plugin:@typescript-eslint/recommended', 
+    "eslint:recommended", 
+    "plugin:react/recommended", 
+    "plugin:react-hooks/recommended"
+  ],
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
     "no-console": "error",

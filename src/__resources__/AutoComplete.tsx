@@ -16,4 +16,4 @@
 
 import React, { FC } from "react";
 
-export const AutoComplete: FC = () => <input autocomplete="some" />;
+export const AutoComplete: FC = () => <input autoComplete="some" />;

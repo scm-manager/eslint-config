@@ -14,9 +14,11 @@
  * along with this program. If not, see https://www.gnu.org/licenses/.
  */
 
-const { ESLint } = require("eslint");
-const path = require("path");
-const config = require("./index");
+import { describe, it, expect } from "vitest";
+
+import { ESLint } from "eslint";
+import path from "path";
+import config from "./index";
 
 const eslint = new ESLint({
   baseConfig: config
