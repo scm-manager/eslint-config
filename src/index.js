@@ -66,6 +66,11 @@ const typescriptConfiguration = {
     }],
     ...rules,
   },
+  settings: {
+    react: {
+      version: "detect",
+    }
+  }
 };
 
 module.exports = {
