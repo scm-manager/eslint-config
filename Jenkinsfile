@@ -19,15 +19,17 @@ pipeline {
         branch pattern: 'release/*', comparator: 'GLOB'
       }
       steps {
-        sh "git checkout ${env.BRANCH_NAME}"
+        // fetch all remotes from origin
+        sh 'git config "remote.origin.fetch" "+refs/heads/*:refs/remotes/origin/*"'
+        sh 'git fetch --all'
+        sh "git tag -d ${releaseVersion} || true"
+
+        sh "git checkout origin/${env.BRANCH_NAME}"
+        sh "git checkout -B ${env.BRANCH_NAME}"
         // read version from brach, set it and commit it
         sh "yarn version --no-git-tag-version --new-version ${releaseVersion}"
         sh 'git add package.json'
         commit "release version ${releaseVersion}"
-
-        // fetch all remotes from origin
-        sh 'git config "remote.origin.fetch" "+refs/heads/*:refs/remotes/origin/*"'
-        sh 'git fetch --all'
 
         // checkout, reset and merge
         sh 'git checkout main'
