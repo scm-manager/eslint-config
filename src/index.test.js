@@ -144,3 +144,11 @@ describe("lint typescript comments", () => {
     expect(warnings).toEqual([]);
   });
 });
+
+describe("lint types", () => {
+  it("should not create error for unused vars", async () => {
+    const { errors, warnings } = await lint("UnusedInTypes.ts");
+    expect(errors).toEqual([]);
+    expect(warnings).toEqual([]);
+  });
+})

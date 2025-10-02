@@ -39,8 +39,7 @@ const typescriptConfiguration = {
   extends: [
     'eslint:recommended', 
     'plugin:@typescript-eslint/recommended', 
-    "eslint:recommended", 
-    "plugin:react/recommended", 
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
   rules: {
